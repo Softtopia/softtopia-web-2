@@ -5,13 +5,14 @@
         .module('softtopiawebApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$state', '$mdSidenav', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($state, $mdSidenav, Auth, Principal, ProfileService, LoginService) {
         var vm = this;
 
         vm.isNavbarCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
+        vm.toggleSidenav = toggleSidenav;
 
         ProfileService.getProfileInfo().then(function(response) {
             vm.inProduction = response.inProduction;
@@ -41,6 +42,10 @@
 
         function collapseNavbar() {
             vm.isNavbarCollapsed = true;
+        }
+
+        function toggleSidenav() {
+            $mdSidenav('right').toggle();
         }
     }
 })();

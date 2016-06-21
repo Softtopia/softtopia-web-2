@@ -3,18 +3,17 @@
 
     angular
         .module('softtopiawebApp', [
-            'ngStorage', 
+            'ngStorage',
             'tmh.dynamicLocale',
-            'pascalprecht.translate', 
+            'pascalprecht.translate',
             'ngResource',
             'ngCookies',
             'ngAria',
             'ngCacheBuster',
             'ngFileUpload',
-            'ui.bootstrap',
-            'ui.bootstrap.datetimepicker',
             'ui.router',
             'infinite-scroll',
+            'ngMaterial',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
         ])

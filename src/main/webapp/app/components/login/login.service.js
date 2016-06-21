@@ -5,9 +5,9 @@
         .module('softtopiawebApp')
         .factory('LoginService', LoginService);
 
-    LoginService.$inject = ['$uibModal'];
+    LoginService.$inject = [];
 
-    function LoginService ($uibModal) {
+    function LoginService () {
         var service = {
             open: open
         };

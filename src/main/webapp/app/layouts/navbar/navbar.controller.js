@@ -9,10 +9,11 @@
 
     function NavbarController ($state, $mdSidenav, Auth, Principal, ProfileService, LoginService) {
         var vm = this;
+        var states = [{label: "home", state: "home"}, { label: "blog", state: "blog" }, { label: "about", state: "about"}]
 
-        vm.isNavbarCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
         vm.toggleSidenav = toggleSidenav;
+        vm.goToState = goToState;
 
         ProfileService.getProfileInfo().then(function(response) {
             vm.inProduction = response.inProduction;
@@ -21,31 +22,39 @@
 
         vm.login = login;
         vm.logout = logout;
-        vm.toggleNavbar = toggleNavbar;
-        vm.collapseNavbar = collapseNavbar;
-        vm.$state = $state;
+        vm.isCurrentState = isCurrentState;
+        //vm.$state = $state;
+        vm.states = states;
+
 
         function login() {
-            collapseNavbar();
+            collapseSidenav();
             LoginService.open();
         }
 
         function logout() {
-            collapseNavbar();
+            collapseSidenav();
             Auth.logout();
             $state.go('home');
         }
 
-        function toggleNavbar() {
-            vm.isNavbarCollapsed = !vm.isNavbarCollapsed;
-        }
 
-        function collapseNavbar() {
-            vm.isNavbarCollapsed = true;
+        function collapseSidenav() {
+            $mdSidenav('right').close();
         }
 
         function toggleSidenav() {
             $mdSidenav('right').toggle();
         }
+
+        function goToState(destinationState) {
+            collapseSidenav();
+            $state.go(destinationState);
+        }
+
+        function isCurrentState(state) {
+            return $state.is(state);
+        }
     }
+
 })();

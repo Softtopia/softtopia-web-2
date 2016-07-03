@@ -186,3 +186,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/src/main/webapp/bower_components/
+.mvn

@@ -1,14 +1,52 @@
 
-    <div layout="column" layout-align="center center" >
-        <div class="inset" hide-xs hide-sm></div>
-        <div layout="row" layout-align="center begin" layout-fill>
-            <md-input-container class="md-block " flex-gt-sm="60" flex-xs="90" flex-sm="80" style="margin-left:10px;">
-                <label>Search for Code</label>
-                <input ng-model="vm.search">
-            </md-input-container>
-            <md-button class="md-icon-button md-primary"  style="margin-top:15px;">
-                <md-icon  > search </md-icon>
-            </md-button>
-        </div>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+    <md-icon >add</md-icon>
+</md-button>
+
+<div >
+    <div class="inset" hide-xs hide-sm></div>
+    <div layout="row" layout-align="center begin" layout-fill>
+        <md-input-container class="md-block " flex-gt-sm="60" flex-xs="90" flex-sm="80" style="margin-left:10px;">
+            <label>Search for Code</label>
+            <input ng-model="vm.search">
+        </md-input-container>
+        <md-button class="md-icon-button md-primary" style="margin-top:15px;">
+            <md-icon> search</md-icon>
+        </md-button>
     </div>
+</div>
+
+
+<md-content layout="row" class="md-default-theme" layout-align="center center" >
+
+
+    <div flex-gt-sm="85" flex-xs="100" flex-sm="90" layout-fill>
+
+        <md-card>
+            <md-card-header>
+                <md-card-header-text class="md-title">
+                    Angular 1 Module Sample
+                </md-card-header-text>
+
+            </md-card-header>
+
+            <md-card-content>
+                <pre style="margin:0px">
+    angular
+        .module('softtopiawebApp')
+        .config(stateConfig);
+    stateConfig.$inject = ['$stateProvider'];
+                </pre>
+            </md-card-content>
+            <md-card-footer style="padding:2px 10px 10px 10px" >
+                <div layout="row" layout-align="space-between center">
+                    <span class="md-caption" > Javascript, Angular</span>
+                    <span class="md-caption" > 05/03/2016</span>
+                </div>
+            </md-card-footer>
+        </md-card>
+    </div>
+
+</md-content>
+
 

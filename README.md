@@ -1,5 +1,8 @@
 # softtopiaweb
 
+This is a web project to search for code examples.
+https://softtopiaweb-2.herokuapp.com
+
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
 ## Development

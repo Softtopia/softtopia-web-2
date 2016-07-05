@@ -1,6 +1,14 @@
-<div>
-    <h1>Welcome to Softtopia web </h1>
-    <section>
 
-    </section>
-</div>
+    <div layout="column" layout-align="center center" >
+        <div class="inset" hide-xs hide-sm></div>
+        <div layout="row" layout-align="center begin" layout-fill>
+            <md-input-container class="md-block " flex-gt-sm="60" flex-xs="90" flex-sm="80" style="margin-left:10px;">
+                <label>Search for Code</label>
+                <input ng-model="vm.search">
+            </md-input-container>
+            <md-button class="md-icon-button md-primary"  style="margin-top:15px;">
+                <md-icon  > search </md-icon>
+            </md-button>
+        </div>
+    </div>
+

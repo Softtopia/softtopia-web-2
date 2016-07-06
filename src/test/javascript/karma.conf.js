@@ -44,6 +44,7 @@ module.exports = function (config) {
             'src/main/webapp/bower_components/angular-messages/angular-messages.js',
             'src/main/webapp/bower_components/ng-file-upload/ng-file-upload.js',
             'src/main/webapp/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+            'src/main/webapp/bower_components/angular-highlightjs/build/angular-highlightjs.js',
             'src/main/webapp/bower_components/angular-mocks/angular-mocks.js',
             'src/main/webapp/bower_components/angular-material/angular-material.js',
             // endbower

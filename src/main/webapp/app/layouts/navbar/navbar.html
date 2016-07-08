@@ -1,11 +1,14 @@
 <md-toolbar class="main-toolbar md-whiteframe-3dp"  >
-    <div class="md-toolbar-tools" layout="row" layout-align="space-between end">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between end" layout-align-xs="space-between center">
 
-        <div layout="row" flex="grow" layout-align="start center" >
-            <md-button hide-gt-xs  class="md-icon-button md-primary md-hue-3" ng-click="vm.toggleSidenav()">
-                <md-icon> menu </md-icon>
-            </md-button>
-            <img class="logo" src="content/images/logo.png">
+        <md-button hide-gt-xs  class="md-icon-button md-primary md-hue-3" ng-click="vm.toggleSidenav()">
+            <md-icon> menu </md-icon>
+        </md-button>
+        <div layout="row" flex-gt-xs="grow" layout-align="start center" >
+            <img hide-xs class="logo" src="content/images/logo.png">
+        </div>
+        <div hide-gt-xs flex="grow" layout="row" layout-align="center center" >
+            <span class="md-headline" >Softtopia</span>
         </div>
         <md-tabs hide-xs  md-dynamic-height flex="nogrow"  class="md-primary toolbar-tabs" md-stretch-tabs="never">
             <md-tab ng-repeat="state in vm.states" label="{{state.label}}" md-on-select="vm.goToState(state.state)">

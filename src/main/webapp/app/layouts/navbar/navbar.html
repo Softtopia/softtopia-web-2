@@ -1,13 +1,13 @@
-<md-toolbar class="md-whiteframe-3dp" style="position:fixed" >
+<md-toolbar class="main-toolbar md-whiteframe-3dp"  >
     <div class="md-toolbar-tools" layout="row" layout-align="space-between end">
 
         <div layout="row" flex="grow" layout-align="start center" >
             <md-button hide-gt-xs  class="md-icon-button md-primary md-hue-3" ng-click="vm.toggleSidenav()">
                 <md-icon> menu </md-icon>
             </md-button>
-            <img style="height:58px;" src="content/images/logo.png">
+            <img class="logo" src="content/images/logo.png">
         </div>
-        <md-tabs hide-xs  md-dynamic-height flex="nogrow"  style="width:360px;" class="md-primary" md-stretch-tabs="never">
+        <md-tabs hide-xs  md-dynamic-height flex="nogrow"  class="md-primary toolbar-tabs" md-stretch-tabs="never">
             <md-tab ng-repeat="state in vm.states" label="{{state.label}}" md-on-select="vm.goToState(state.state)">
             </md-tab>
         </md-tabs>

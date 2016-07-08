@@ -4,6 +4,18 @@ md-content.md-default-theme {
     background-color: $gray;
 }
 
+md-toolbar.main-toolbar {
+    position:fixed;
+}
+
+md-tabs.toolbar-tabs {
+    width:360px;
+}
+
+img.logo {
+    height:58px;
+}
+
 //body {
 //    background: #fafafa;
 //    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

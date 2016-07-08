@@ -36,27 +36,7 @@
             <div ui-view="content"  flex="grow">
                 <!-- Angular views -->
             </div>
-            <div>
-                <md-divider></md-divider>
-                <div layout="row" layout-align="space-between end">
-                    <div style="padding-top:5px">
-                        <div  >&copy; Softtopia 2008-2016</div>
-                        <div style="padding-left: 18px" class="md-caption" >Powered by AngularJS</div>
-                    </div>
-
-                    <div layout="row" >
-                        <md-button class="md-icon-button" >
-                            <md-icon>share</md-icon>
-                        </md-button>
-                        <md-button href="mailto:j@softtopia.com" class="md-icon-button" >
-                            <md-icon>mail</md-icon>
-                        </md-button>
-                        <md-button class="md-icon-button" >
-                            <md-icon>location_on</md-icon>
-                        </md-button>
-                    </div>
-
-                </div>
+            <div ng-include="'footer.html'">
 
 
             </div>

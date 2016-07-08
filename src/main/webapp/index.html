@@ -28,22 +28,15 @@
     <![endif]-->
     <!--<page-ribbon></page-ribbon>-->
 
-    <div >
+    <div layout="column" layout-fill>
 
-        <div ui-view="navbar" ng-cloak></div>
-        <!--<md-toolbar class="md-whiteframe-2dp" style="position:fixed">-->
-            <!--<div class="md-toolbar-tools">-->
-                <!--Softtopia-->
-            <!--</div>-->
-        <!--</md-toolbar>-->
+        <div ui-view="navbar" ng-cloak ></div>
 
-
-        <md-content class="md-padding md-default-theme" style="padding-top:70px"  layout="column" layout-align="space-between stretch" >
-            <div ui-view="content" style="min-height: 80vh;">
+        <md-content class="md-padding md-default-theme" style="padding-top:70px;"  layout="column"  layout-fill >
+            <div ui-view="content"  flex="grow">
                 <!-- Angular views -->
             </div>
-
-            <div class="footer" >
+            <div class="footer"  >
                 <p translate="footer">This is your footer</p>
             </div>
         </md-content>

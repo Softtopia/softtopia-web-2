@@ -15,10 +15,13 @@
             'infinite-scroll',
             'ngMaterial',
             'hljs',
+            'btford.markdown',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
         ])
         .run(run);
+
+
 
     run.$inject = ['stateHandler', 'translationHandler'];
 

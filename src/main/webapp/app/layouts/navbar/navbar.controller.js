@@ -49,6 +49,7 @@
 
         function goToState(destinationState) {
             collapseSidenav();
+            console.log("goToState", destinationState)
             $state.go(destinationState);
         }
 

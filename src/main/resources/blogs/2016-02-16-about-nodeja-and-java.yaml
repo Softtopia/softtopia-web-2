@@ -1,0 +1,9 @@
+source:
+    url: https://raw.githubusercontent.com/jordiferm/dotX/master/source/_posts/2016-02-16-about-nodejs-and-java.md
+meta:
+    title: About NodeJS and Java
+    description: Comparación entre las arquitecturas de NodeJS y Java.
+    tags: nodejs,java
+    keywords: nodejs,java
+    date: 2016-02-16
+

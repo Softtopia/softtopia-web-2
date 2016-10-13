@@ -15,7 +15,7 @@
             'infinite-scroll',
             'ngMaterial',
             'hljs',
-            'btford.markdown',
+            'ng-showdown',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
             'angular-loading-bar'
         ])

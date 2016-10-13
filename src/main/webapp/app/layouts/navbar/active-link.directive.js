@@ -3,7 +3,33 @@
 
     angular
         .module('softtopiawebApp')
-        .directive('activeLink', activeLink);
+        .directive('activeLink', activeLink)
+
+    //.directive('prettyprintrun', function() {
+    //    return {
+    //        restrict: 'C',
+    //        link: function($scope, element, attrs) {
+    //            // Trigger when number of children changes,
+    //            // including by directives like ng-repeat
+    //            var watch = $scope.$watch(function () {
+    //                return element.children().length;
+    //            }, function () {
+    //                // Wait for templates to render
+    //                $scope.$evalAsync(function () {
+    //                    // Finally, directives are evaluated
+    //                    // and templates are renderer here
+    //                    var children = element.children();
+    //                    console.log(children);
+    //                    prettyPrint();
+    //                });
+    //            });
+    //        }, };
+    //        //link: function postLink(scope, element, attrs) {
+    //        //    console.log("PrettyPrinting", element);
+    //        //    prettyPrint();
+    //        //    //element.html(prettyPrintOne(element));
+    //        //}
+    //});
 
     function activeLink() {
         var directive = {

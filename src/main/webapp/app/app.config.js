@@ -4,8 +4,8 @@
     angular
         .module('softtopiawebApp')
         .config(hljsConfig)
-        .config(themeConfig);
-        //.config(prettifyConfig); //TOOOODOOO: !!! ---> Update to this: https://github.com/showdownjs/ng-showdown and then use prettify extension
+        .config(themeConfig)
+        .config(showdownConfig);
 
 
     hljsConfig.$inject = ['hljsServiceProvider'];
@@ -24,14 +24,9 @@
 
     }
 
-
-    prettifyConfig.$inject = ['markdownConverterProvider'];
-    function prettifyConfig(markdownConverterProvider) {
-        // options to be passed to Showdown
-        // see: https://github.com/coreyti/showdown#extensions
-        markdownConverterProvider.config({
-            extensions: ['prettify']
-        });
+    showdownConfig.$inject = ['$showdownProvider'];
+    function showdownConfig($showdownProvider) {
+        $showdownProvider.loadExtension('prettify');
     }
 
 

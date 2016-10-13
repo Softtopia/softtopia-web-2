@@ -23,7 +23,7 @@
                 },
                 resolve: {
                     blogDetailData: ['Blog', '$stateParams', function(Blog, $stateParams) {
-                        return Blog.get({id: $stateParams.blogId})
+                        return Blog.get({id: $stateParams.blogId});
                     }]
                 }
 

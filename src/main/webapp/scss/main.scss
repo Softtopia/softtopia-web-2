@@ -38,6 +38,7 @@
     padding-bottom: 20px;
     h2 {
         font-family: AmaticBold, monospace;
+        font-size: 30px;
     }
     @media screen and (min-width: 600px ) {
         .md-icon-button {
@@ -52,6 +53,15 @@
         a {
             margin: 10px
         }
+    }
+}
+
+.st-skills-frame {
+    padding: 20px;
+    margin: 10px;
+    img {
+        width:150px;
+        padding:5px;
     }
 }
 

@@ -37,6 +37,6 @@ public class BlogResourcesServiceTest {
         List<IdBlogDescriptor> descriptors = service.getBlogDescriptors();
         String source = service.getBlogSourceString(descriptors.get(0));
         Assert.isTrue(source.length() > 0);
-        //TODO: Assert thad source is markdown.
+        //TODO: Assert that source is markdown.
     }
 }

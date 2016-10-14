@@ -5,9 +5,9 @@
         .module('softtopiawebApp')
         .controller('BlogController', Controller);
 
-    Controller.$inject = ['Blog', '$state'];
+    Controller.$inject = ['Blog', '$state', '$sce'];
 
-    function Controller (Blog, $state) {
+    function Controller (Blog, $state, $sce) {
         var vm = this;
         vm.showBlog = showBlog;
         loadAll();

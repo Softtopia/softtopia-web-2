@@ -1,6 +1,5 @@
 <div>
     <h1 hide-xs layout="row" layout-align="center center"  translate="blog.title">Blog</h1>
-
     <md-content flex md-scroll-y layout="row" class="md-default-theme" layout-align="center center" >
         <div flex-gt-sm="85" flex-xs="100" flex-sm="90" layout-fill>
 
@@ -20,7 +19,7 @@
 
                 </md-card-header>
                 <md-card-content style="padding:2px 15px 6px 15px; ">
-                    <span class="md-body-1">{{blog.meta.description}} </span>
+                    <span class="md-body-1" ng-bind-html="blog.meta.description"></span>
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button ng-click="vm.showBlog(blog)" class="md-primary">Read</md-button>
                     </md-card-actions>

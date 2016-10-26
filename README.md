@@ -54,6 +54,8 @@ After application modification, repackage it with
         ./mvnw package -DskipTests=true -B -Pprod
 And then re-deploy it with
         heroku deploy:jar --jar target/*.war --app softtopiaweb-2
+        or 
+        HEROKU_API_KEY="5437f2e9-34b2-42a0-9670-638e4bc078f9" ./mvnw -Pprod -DskipTests=true heroku:deploy ?
 
 ## Testing
 

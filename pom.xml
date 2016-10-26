@@ -20,6 +20,7 @@
     </prerequisites>
 
     <properties>
+        <heroku.appName>softtopiaweb-2</heroku.appName>
         <assertj-core.version>3.3.0</assertj-core.version>
         <awaitility.version>1.7.0</awaitility.version>
         <commons-io.version>2.4</commons-io.version>
@@ -822,6 +823,17 @@
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
                             <executable>true</executable>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.heroku.sdk</groupId>
+                        <artifactId>heroku-maven-plugin</artifactId>
+                        <version>1.1.1</version>
+                        <configuration>
+                            <appName>${heroku.appName}</appName>
+                            <processTypes>
+                                <web>java  -jar target/*.war --spring.profiles.active=prod,heroku --server.port=$PORT --spring.data.mongodb.database=$(echo "$MONGODB_URI" | sed "s/^.*:[0-9]*\///g")</web>
+                            </processTypes>
                         </configuration>
                     </plugin>
                 </plugins>

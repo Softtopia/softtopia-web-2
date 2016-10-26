@@ -20,12 +20,15 @@ node {
     stage 'clean'
     sh "./mvnw clean"
 
-    stage 'backend tests'
-    sh "./mvnw test"
+//    stage 'backend tests'
+//    sh "./mvnw test"
+//
+//    stage 'frontend tests'
+//    sh "gulp test"
 
-    stage 'frontend tests'
-    sh "gulp test"
+//    stage 'packaging'
+//    sh "./mvnw package -DskipTests=true -B -Pprod"
 
-    stage 'packaging'
-    sh "./mvnw package -Pprod -DskipTests"
+    stage 'deploy to Heroku'
+    sh "HEROKU_API_KEY=\"5437f2e9-34b2-42a0-9670-638e4bc078f9\" ./mvnw -B -Pprod -DskipTests=true heroku:deploy"
 }

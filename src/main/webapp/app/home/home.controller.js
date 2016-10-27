@@ -15,6 +15,10 @@
         vm.login = LoginService.open;
         vm.searchCode = searchCode;
         vm.register = register;
+        vm.inputKeyPressed = inputKeyPressed;
+
+        vm.noResults = false;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
@@ -27,19 +31,25 @@
                 vm.isAuthenticated = Principal.isAuthenticated;
             });
         }
+
         function register () {
             $state.go('register');
         }
 
         function searchCode(query) {
             CodeSearch.get({"q":query}, function(data) {
-                console.log(data);
                 vm.searchResult = prepareData(data);
-                $timeout(function() {
-                    prettyPrint();
-                }, 400);
-
+                vm.noResults = data.total == 0;
+                console.log(vm.searchResult);
+                runPrettyPrint();
             })
+        }
+
+        //TODO: Service to do this
+        function runPrettyPrint() {
+            $timeout(function() {
+                prettyPrint();
+            }, 400);
         }
 
         function prepareData(data) {
@@ -52,6 +62,16 @@
             Object.keys(result.lines).forEach(function(key) {
                 result.linesString += key + " - " + result.lines[key] + "\n";
             })
+        }
+
+        function inputKeyPressed(event) {
+            if (event.keyCode === 12 + 1 && isThereSearchQuery()) {
+                searchCode(vm.query);
+            }
+        }
+
+        function isThereSearchQuery() {
+            return vm.query && vm.query.length > 0;
         }
     }
 })();

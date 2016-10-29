@@ -37,10 +37,10 @@
         }
 
         function searchCode(query) {
+
             CodeSearch.get({"q":query}, function(data) {
                 vm.searchResult = prepareData(data);
                 vm.noResults = data.total == 0;
-                console.log(vm.searchResult);
                 runPrettyPrint();
             })
         }

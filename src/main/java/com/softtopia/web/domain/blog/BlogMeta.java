@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class BlogMeta {
     String title;
+    String imagePath;
     String description;
     String tags;
     String keywords;
@@ -57,5 +58,13 @@ public class BlogMeta {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

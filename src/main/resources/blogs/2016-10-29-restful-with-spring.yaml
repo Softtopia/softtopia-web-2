@@ -1,0 +1,10 @@
+source:
+    url: https://github.com/Softtopia/softtopia-web-2/blob/master/src/main/resources/blogs/2016-10-29-restful-with-spring.md
+meta:
+    title: Restful With Spring
+    imagePath: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRzHkcdcYE3Ask0GBTdxRNZLORXegr4NyBjYzwMoYW5zqJ0XYaT"
+    description: Cuáles son las mejores prácticas para desarrollar un servicio web RESTFul con Spring 4.
+    tags: spring,java
+    keywords: spring,java
+    date: 2016-10-29
+

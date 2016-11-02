@@ -13,6 +13,7 @@ import javax.inject.Inject;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -34,8 +35,9 @@ public class BlogResourcesServiceTest {
 
     @Test
     public void testGetBlogSource() throws IOException {
-        List<IdBlogDescriptor> descriptors = service.getBlogDescriptors();
-        String source = service.getBlogSourceString(descriptors.get(0));
+        Map<String, IdBlogDescriptor> descriptors = service.getBlogDescriptors();
+        Assert.isTrue(!descriptors.isEmpty());
+        String source = service.getBlogSourceString(descriptors.get(descriptors.keySet().toArray()[0].toString()));
         Assert.isTrue(source.length() > 0);
         //TODO: Assert that source is markdown.
     }

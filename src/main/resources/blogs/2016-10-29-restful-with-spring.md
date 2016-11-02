@@ -42,3 +42,34 @@ Anotamos la definición de la clase con @RestController indicando el "RootPath" 
 
 ### Verbos en HTTP
 
+#### Post (Create)
+
+El verbo **POST** indica que realizar alguna operación con el recurso que indica la URI. Normalmente se utiliza **POST** para la creación de un nuevo recurso. Pero también lo podemos utilizar para actualizarlo.
+![image](https://cloud.githubusercontent.com/assets/4984031/19948076/2b1b2146-a14b-11e6-90d9-a9bc5e93ce5f.png)
+
+
+```java
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> add(@RequestBody Document document) {
+
+        if (document != null)
+        {
+            Document result = documentService.add(document);
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.setLocation(ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(result.getId()).toUri());
+            return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
+        }
+        else
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+```
+
+Valores de retorno (Response codes) para POST: 
+* **201 Created**: Si la llamada al método ha creado un recurso y lo ha hecho correctamente. En este caso a demás en los HttpHeaders añadiremos uno de tipo Location con la URI del recurso creado.
+* **400 Bad Request**: En el caso de que el objeto enviado sea incorrecto o no se pueda serializar.
+* **500 Internal Server Error**: Si ha ocurrido algún error no recuperable para el servidor. Por ejemplo que no se puede acceder a la base de datos para guardar el recurso. En estos casos el servidor se debería quedar en el mismo estado en el que estaba antes de la llamada a **POST**.
+
+
+

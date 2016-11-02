@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,10 +35,8 @@ public class BlogResource {
     @RequestMapping(value = "/blogs",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<IdBlogDescriptor> getList() throws IOException {
-        List<IdBlogDescriptor> res = service.getBlogDescriptors();
-
-        return res;
+    public Collection<IdBlogDescriptor> getList() throws IOException {
+        return service.getBlogDescriptors().values();
     }
 
     @RequestMapping(value = "/blogs/{id}",

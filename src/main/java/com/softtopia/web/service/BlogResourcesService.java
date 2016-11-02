@@ -10,7 +10,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * softtopia-web
@@ -20,7 +22,7 @@ import java.util.List;
 @Service
 public class BlogResourcesService {
 
-    private ArrayList<IdBlogDescriptor> blogDescriptors = null;
+    private Map<String, IdBlogDescriptor> blogDescriptors = null;
 
     @Value("classpath*:**/blogs/*.md")
     private Resource[] blogFiles;
@@ -57,15 +59,17 @@ public class BlogResourcesService {
         return stringBuilder.toString();
     }
 
-    public List<IdBlogDescriptor> getBlogDescriptors() throws IOException {
+    public Map<String, IdBlogDescriptor> getBlogDescriptors() throws IOException {
         if (blogDescriptors == null) {
-            blogDescriptors = new ArrayList<>();
+            blogDescriptors = new HashMap<String,IdBlogDescriptor>();
             Integer currentId = 1;
             for (Resource file : blogDescriptorFiles) {
                 String fileString = getStringFromInputStream(file.getInputStream());
                 YamlReader reader = new YamlReader(fileString);
+
                 BlogDescriptor newDescriptor = reader.read(BlogDescriptor.class);
-                blogDescriptors.add(new IdBlogDescriptor(currentId.toString(), newDescriptor));
+                String blogId = file.getFilename().replace(".yaml", "");
+                blogDescriptors.put(blogId, new IdBlogDescriptor(blogId, newDescriptor));
                 currentId++;
             }
         }
@@ -78,9 +82,9 @@ public class BlogResourcesService {
     }
 
     private IdBlogDescriptor descriptorById(String blogDescriptorId) throws IOException {
-        List<IdBlogDescriptor> descriptors = getBlogDescriptors();
-        //TODO: Check exceptions here.
-        return descriptors.get(Integer.valueOf(blogDescriptorId) - 1);
+        Map<String,IdBlogDescriptor> descriptors = getBlogDescriptors();
+        //TODO: Check exceptions here.And check if id is found.
+        return descriptors.get(blogDescriptorId);
     }
 
     public String getBlogSourceString(String blogDescriptorId) throws IOException {

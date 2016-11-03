@@ -42,7 +42,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function () {
-    return es.merge( 
+    return es.merge(
         gulp.src(config.app + 'i18n/**')
         .pipe(plumber({errorHandler: handleErrors}))
         .pipe(changed(config.dist + 'i18n/'))
@@ -61,7 +61,12 @@ gulp.task('copy', function () {
         gulp.src([config.app + 'robots.txt', config.app + 'favicon.ico', config.app + '.htaccess'], { dot: true })
         .pipe(plumber({errorHandler: handleErrors}))
         .pipe(changed(config.dist))
-        .pipe(gulp.dest(config.dist))
+        .pipe(gulp.dest(config.dist)),
+
+        gulp.src(config.app + 'content/blogs/**')
+        .pipe(plumber({errorHandler: handleErrors}))
+        .pipe(changed(config.dist + 'content/blogs/'))
+        .pipe(gulp.dest(config.dist + 'content/blogs/'))
     );
 });
 
